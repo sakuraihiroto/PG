@@ -1,32 +1,29 @@
-#include <stdio.h>
-#include"SceneManager.h"
+#include "Enemy.h"
 
-int main() {
-    int sceneNo = 0;
+bool Enemy::isAlive_ = true;
 
-    SceneManager* sceneManager = SceneManager::GetInstance();
+int main()
+{
+	std::array<Enemy, 5> enemy{};
+	// “Gó‘Ô‚ğ•\¦
+	for (int i = 0; i < enemy.size(); i++)
+	{
+		printf("\n“G%d:", i);
 
-    printf("SceneNo: %d\n", sceneNo);
+		enemy[i].Print();
+	}
 
+	enemy[4].SetAlive(false);
 
-    while (1) {
+	printf("\n“G4‚ğ“|‚µ‚Ü‚µ‚½\n");
 
-        if (GetAsyncKeyState(VK_SPACE) & 0x01) {
-            sceneNo++;
-            if (sceneNo > 3)
-            {
-                sceneNo = 0;
-            }
+	// “Gó‘Ô‚ğÄ•\¦
+	for (int i = 0; i < enemy.size(); i++)
+	{
+		printf("\n“G%d:", i);
 
-            printf("SceneNo: %d\n", sceneNo);
+		enemy[i].Print();
+	}
 
-            sceneManager->ChangeScene(sceneNo);
-
-            printf("Press Space to Scene Change\n\n");
-
-        }
-
-
-
-    }
+	return 0;
 }
