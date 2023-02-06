@@ -1,52 +1,12 @@
 ﻿#include "Enemy.h"
-#include <stdio.h>
 
-void (Enemy::* Enemy::pFuncTable[])() =
+void Enemy::SetAlive(bool isAlive)
 {
-	&Enemy::Approach,
-	&Enemy::Shoot,
-	&Enemy::GetAway
-};
-
-Enemy::Enemy()
-{
-	phase_ = 0;
+	isAlive_ = isAlive;
 }
 
-Enemy::~Enemy()
+void Enemy::Print()
 {
-}
-
-void Enemy::Approach()
-{
-	printf("‹ß‚Ã‚­\n");
-}
-
-void Enemy::Shoot()
-{
-	printf("Œ‚‚Â\n");
-}
-
-void Enemy::GetAway()
-{
-	printf("—£‚ê‚é\n");
-}
-
-void Enemy::Update()
-{
-	printf("phase_ : %d\n", phase_);
-
-	(this->*pFuncTable[phase_])();
-
-	phase_++;
-
-	if (phase_ == 3)
-	{
-		phase_ = 0;
-	}
-}
-
-void Enemy::Draw()
-{
-	printf("(enemy draw)\n");
+	if (isAlive_) { printf("¶‘¶\n"); }
+	else { printf("Á–Å\n"); }
 }

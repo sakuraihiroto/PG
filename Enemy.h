@@ -1,26 +1,14 @@
 #pragma once
+#include <stdio.h>
+#include <array>
 
 class Enemy
 {
-public:
-	Enemy();
-	~Enemy();
-
-	//行動
-	void Approach();
-	void Shoot();
-	void GetAway();
-
-	//更新
-	void Update();
-
-	//描画
-	void Draw();
-
 private:
-	static void (Enemy::* pFuncTable[])();
+	static bool isAlive_;
 
-	//行動フェーズ
-	int phase_;
+public:
+	void SetAlive(bool isExist);
+	void Print();
 
 };
